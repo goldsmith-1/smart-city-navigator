@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>City Hub Navigator</title>
+<meta name="description" content="Indoor navigation for a two-floor smart city building, with step-free routing and shareable routes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><h1>City Hub Navigator</h1><p>Find your way around the building. Tap rooms on the map or use the lists.</p></header>
+<main>
+  <section class="panel" aria-label="Route planner">
+    <label>From<select id="from"></select></label>
+    <label>To<select id="to"></select></label>
+    <div class="row">
+      <label class="check"><input type="checkbox" id="sf"> Step-free route (no stairs)</label>
+      <button id="swap" type="button">Swap</button>
+    </div>
+    <div id="summary" aria-live="polite">Choose a start and a destination.</div>
+    <ol id="steps"></ol>
+  </section>
+  <section class="mapbox" aria-label="Floor map">
+    <div id="tabs" role="group" aria-label="Floor"></div>
+    <svg id="map" viewBox="0 0 640 360" role="img" aria-label="Interactive floor plan"></svg>
+  </section>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+:root{--paper:#f3f5f1;--ink:#13212c;--blue:#1b5fd1;--route:#ff6b2c;--room:#dcebe6;--stairs:#eadfc6;--lift:#cfd9f5;--line:#13212c26}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Sora,system-ui,sans-serif;line-height:1.5}
+header{padding:20px 16px 4px;max-width:1100px;margin:auto}
+h1{margin:0;font-weight:700;font-size:clamp(1.4rem,4vw,2rem);letter-spacing:-.02em}
+header p{margin:4px 0 0;opacity:.7;font-size:.95rem}
+main{display:grid;gap:16px;padding:16px;max-width:1100px;margin:auto;grid-template-columns:minmax(260px,340px) 1fr}
+@media(max-width:760px){main{grid-template-columns:1fr}.mapbox{order:-1}}
+.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;align-self:start}
+label{display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:.85rem}
+select,button{font:inherit;font-size:.95rem;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+button{cursor:pointer;font-weight:600}button:hover{background:#eef2ee}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.check{flex-direction:row;align-items:center;gap:8px;font-weight:400}
+#summary{font-weight:600;color:var(--blue)}
+#steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:.92rem}
+.mapbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+#tabs{display:flex;gap:6px;margin-bottom:8px}
+#tabs button[aria-pressed=true]{background:var(--ink);color:#fff}
+#map{width:100%;height:auto;display:block}
+.floor{fill:#fafbf9;stroke:var(--line)}
+.corridor{fill:#eceeea}
+.room rect{fill:var(--room);stroke:var(--ink);stroke-opacity:.45;stroke-width:1.5;cursor:pointer;transition:fill .15s}
+.room.t-stairs rect{fill:var(--stairs)}.room.t-lift rect{fill:var(--lift)}
+.room:hover rect{fill:#c3e0d7}
+.room.from rect{fill:#bcd2f7;stroke:var(--blue);stroke-width:3}
+.room.to rect{fill:#ffd2bd;stroke:var(--route);stroke-width:3}
+.room text{font:600 12px Sora,sans-serif;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.room.sm text{font-size:9px}
+.door{stroke:#fafbf9;stroke-width:4}
+.route{fill:none;stroke:var(--route);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:10 9;animation:flow 1s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-19}}
+@media(prefers-reduced-motion:reduce){.route{animation:none}}
+.start{fill:var(--blue);stroke:#fff;stroke-width:3}.end{fill:var(--route);stroke:#fff;stroke-width:3}
